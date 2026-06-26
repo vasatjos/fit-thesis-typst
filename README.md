@@ -1,15 +1,22 @@
 # FIT Typst Thesis Template
 
 A [Typst](https://typst.app/) template for writing theses at the Faculty of Information Technology, CTU in Prague.
+The goal of this project is that the first three chapters in the [Typst tutorial](https://typst.app/docs/tutorial/)
+and the examples in `main.typ` should be enough for you to start writing.
 
 ## Structure
 
-- `main.typ` — thesis document with example content showing template features
-- `template/` — the template (page layout, headings, title page, ... You shouldn't need to go here)
-- `acronyms.typ` — glossary / acronym definitions ([glossarium](https://typst.app/universe/package/glossarium))
-- `bibliography.bib` — BibTeX references
-- `presentation.typ` — defense presentation template ([diatypst](https://typst.app/universe/package/diatypst))
-- `compile_thesis.sh` — build script that merges the assignment page into the final PDF
+- `main.typ` -- thesis document with example content showing template features
+- `template/` -- the template (page layout, headings, title page, ...
+  If you ever need to go here to add something you think should be included
+  by default, create an issue or a PR.)
+- `acronyms.typ` -- glossary / acronym definitions ([glossarium](https://typst.app/universe/package/glossarium))
+- `bibliography.bib` -- BibTeX references
+- `presentation.typ` -- defense presentation template ([diatypst](https://typst.app/universe/package/diatypst))
+- `compile_thesis.sh` -- build script that merges the assignment page into the final PDF
+- `example.pdf`, `example_presentation.pdf` -- compiled `main.typ` and `presentation.typ`
+
+A real, full thesis that used (an older version of) this template can be found [here](https://hdl.handle.net/10467/182947).
 
 ## Usage
 
