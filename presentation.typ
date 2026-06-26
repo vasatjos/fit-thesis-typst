@@ -46,6 +46,13 @@
 - Method C:
     - Brief description
 
+/ Theorem or definition: #[
+        A very crucial concept:
+        $
+            EE [X] = sum_(i=1)^n x_i dot p_X (x_i)
+        $
+    ]
+
 
 == Results
 // Present your key results. Use tables, figures, or grids.
