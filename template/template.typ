@@ -62,6 +62,7 @@
         let in-margin = 47mm
         let out-margin = 32.5mm
 
+        // single prepended page -> swap left and right pages
         if not two-page-assignment {
             (in-margin, out-margin) = (out-margin, in-margin)
         }
