@@ -209,6 +209,7 @@
 
     // LaTeX style tables, taken from diatypst src
     show figure.where(kind: table): it => {
+        set figure.caption(position: top)
         show table: set table(
             stroke: (x, y) => (
                 x: none,
