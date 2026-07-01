@@ -78,6 +78,7 @@
 
     if title-first {
         title-page(two-sided, font: font, ..meta)
+        imprint-page(two-sided, ..meta)
 
         if two-sided and not two-page-assignment {
             page[]
@@ -89,12 +90,7 @@
         }
 
         title-page(two-sided, font: font, ..meta)
-    }
-
-    pagebreak()
-
-    if two-sided {
-        page[]
+        imprint-page(two-sided, ..meta)
     }
 
     {
@@ -105,11 +101,8 @@
         block(width: 60%, acknowledgement)
         v(2fr)
 
-        if two-sided {
-            page[]
-        }
+        pagebreak(weak: true)
     }
-    pagebreak()
 
     {
         set par(justify: true)
@@ -126,14 +119,8 @@
         meta.submission-date.display("[day]. [month]. [year]")
         h(1fr)
         box(width: 1fr, repeat[.])
+        pagebreak(weak: true)
     }
-
-    pagebreak()
-
-    imprint-page(two-sided, ..meta)
-
-
-    pagebreak()
 
     set page(numbering: "i", footer: footer-display)
 
@@ -166,8 +153,8 @@
         h(1em)
         keywords-cz
         set text(lang: "en")
+        pagebreak(weak: true)
     }
-    pagebreak()
 
 
     // alongside flex-caption allows for short and long figure captions
