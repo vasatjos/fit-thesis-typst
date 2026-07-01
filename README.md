@@ -6,7 +6,7 @@ and the examples in `main.typ` should be enough for you to start writing.
 
 ## Structure
 
-- `main.typ` -- thesis document with example content showing template features
+- `main.typ` -- thesis document with example content showing template features and some Typst tips
 - `template/` -- the template (page layout, headings, title page, ...
   If you ever need to go here to add something you think should be included
   by default, create an issue or a PR.)

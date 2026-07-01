@@ -25,7 +25,14 @@
     // set to true if generating a PDF for print (shifts page layout, correctly aligns odd/even pages,...)
     two-sided: false,
 
+    // change based on abstract length or your preference
     two-page-abstract: false,
+
+    // change based on your assignment.pdf length
+    two-page-assignment: false,
+
+    // assignment before title page, make sure to call compile_thesis.sh with the correct flags
+    title-first: false,
 
     abstract-en: [
         #lorem(100)
@@ -143,9 +150,9 @@ and tables look like in @tab:weight and @code:hello.
 #figure(
     ```cpp
     unsigned long fibonacci(const long n) {
-        if (n == 0) 
+        if (n == 0)
             return 0;
-        if (n == 1) 
+        if (n == 1)
             return 1;
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
@@ -228,11 +235,12 @@ a superior typesetting system.
     #set text(font: "DejaVu Sans Mono", size: 9pt)
     #let dots() = box(width: 1fr, repeat[.])
 
+    // project structure
     #tree-list[
-        - here #dots() you
-        - can #dots() explain
-            - the #dots() structure
-        - of your #dots() project
+        - file #dots() a description of the file
+        - dir/ #dots() a description of the directory
+            - file-in-dir #dots() another description
+        - another-dir/ #dots() another description
     ]
 
 ]

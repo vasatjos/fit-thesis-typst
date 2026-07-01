@@ -22,6 +22,7 @@
     keywords-cz: "",
     two-page-abstract: false,
     two-page-assignment: false,
+    title-first: false,
     ..intro-args,
     body,
 ) = {
@@ -53,30 +54,41 @@
 
     let a4-width = 210mm
     let text-width = 130mm
-    let page-margin = (a4-width - text-width) / 2
+    let default-margin = (a4-width - text-width) / 2
 
+    let page-margin = default-margin
 
-    // TODO: Margin synergy with assignment length
-    // let page-margin = if two-sided {
-    //     (top: 46mm, bottom: 40mm, inside: 47mm, outside: 32.5mm)
-    // } else {
-    //     (a4-width - text-width) / 2
-    // }
+    if two-sided {
+        let in-margin = 47mm
+        let out-margin = 32.5mm
+
+        if not two-page-assignment {
+            (in-margin, out-margin) = (out-margin, in-margin)
+        }
+
+        page-margin = (top: default-margin, bottom: default-margin, inside: in-margin, outside: out-margin)
+    }
 
     set page(
         paper: "a4",
-        // same top/bottom margin as inner/outer; looks good in the PDF version
         margin: page-margin,
     )
 
 
-    // TODO: if title page goes first, put this after the title-page call
-    if two-sided and not two-page-assignment {
-        page[]
-    }
+    if title-first {
+        title-page(two-sided, font: font, ..meta)
 
-    // render title page before configuring the rest, which we don't use
-    title-page(two-sided, font: font, ..meta)
+        if two-sided and not two-page-assignment {
+            page[]
+        }
+    } else {
+        // assignment first (default behaviour)
+        if two-sided and not two-page-assignment {
+            page[]
+        }
+
+        title-page(two-sided, font: font, ..meta)
+    }
 
     pagebreak()
 
@@ -104,7 +116,8 @@
         v(1fr)
         [
             #set align(right)
-            = Declaration]
+            = Declaration
+        ]
         declaration
         v(1.5em)
 
@@ -166,10 +179,14 @@
 
     outline(depth: 2, indent: auto)
     pagebreak()
-    outline(title: "List of Figures", target: figure.where(kind: image))
-    outline(title: "List of Tables", target: figure.where(kind: table))
-    outline(title: "List of Code Listings", target: figure.where(kind: raw))
-    outline(title: "List of Algorithms", target: figure.where(kind: "algo"))
+    {
+        // only show a list if there is content in it
+        show outline: it => if query(it.target) != () { it }
+        outline(title: "List of Figures", target: figure.where(kind: image))
+        outline(title: "List of Tables", target: figure.where(kind: table))
+        outline(title: "List of Code Listings", target: figure.where(kind: raw))
+        outline(title: "List of Algorithms", target: figure.where(kind: "algo"))
+    }
 
 
     set heading(outlined: true)
@@ -250,7 +267,7 @@
         counter(figure.where(kind: "algo")).update(0)
 
         if two-sided {
-            pagebreak(weak: true, to: if two-page-abstract { "odd" } else { "even" })
+            pagebreak(weak: true, to: if two-page-assignment { "odd" } else { "even" })
         } else {
             pagebreak(weak: true)
         }
