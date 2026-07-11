@@ -74,9 +74,9 @@ will correctly handle how they get displayed for you. Note that shortcuts
 can't be used in figure captions. If you want to do something more advanced,
 read the `glossarium` docs.
 
-Another thing you can do is refference future chapters, like @chapter:template-intro, where
+Another thing you can do is reference future chapters, like @chapter:template-intro, where
 we discuss how to use the template further.
-You can also refference literature this way:  @Adam @python.
+You can also reference literature this way:  @Adam @python.
 This is the end of the introduction, only placeholder text follows.
 
 #lorem(100)

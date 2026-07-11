@@ -31,3 +31,5 @@ if [[ "$PRINT" == true ]]; then
     gs  -o  final_PRINT.pdf  -dNoOutputFonts  -sDEVICE=pdfwrite  full_thesis.pdf
     echo "Print-ready PDF: final_PRINT.pdf"
 fi
+
+rm main.pdf
