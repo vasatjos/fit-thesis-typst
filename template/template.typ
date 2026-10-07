@@ -194,10 +194,6 @@
     show figure.caption: box.with(width: 92%)
     show figure.caption: par.with(justify: false)
 
-    show figure.where(kind: table): set figure.caption(position: top)
-    show figure.where(kind: raw): set figure.caption(position: top)
-    show figure.where(kind: "algo"): set figure.caption(position: top)
-
     // LaTeX style tables, taken from diatypst src
     show figure.where(kind: table): it => {
         show table: set table(
